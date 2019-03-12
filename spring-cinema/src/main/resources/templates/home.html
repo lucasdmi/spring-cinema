@@ -1,0 +1,18 @@
+<!DOCTYPE	html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz./thymeleaf/layout"
+	layout:decorator="LayoutPadrao"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+	
+<section layout:fragment="Conteudo">
+<body>
+	<div style="margin: 20px">
+		<h3>Venha conhecer os nossos Filmes!</h3>
+	</div>
+	<div style="margin: 20px">
+		<a class="navbar-brand" th:href="@{/}"><img src="../static/images/logo.jpg" th:src="@{/images/logo.jpg}" class="logo" style="width: 300px"/></a>
+	</div>
+</body>
+</section>		
+</html>

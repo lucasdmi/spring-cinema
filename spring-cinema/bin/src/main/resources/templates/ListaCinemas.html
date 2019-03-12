@@ -1,0 +1,51 @@
+<!DOCTYPE	html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz./thymeleaf/layout"
+	layout:decorator="LayoutPadrao"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+
+<section layout:fragment="Conteudo">
+<body>
+
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Cinemas</h1>
+		</div>
+		<div class="panel-body">
+			<form class="form-inline" method="POST" th:object="${cinema}"
+				th:action="@{/cinemas}" style="margin: 20px 0">
+				<div class="form-group">
+					<input type="hidden" th:field="*{id}"> 
+					<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
+					<input type="text" class="form-control" placeholder="Endereco" th:field="*{endereco}" />
+			
+					<button type="submit" class="btn btn-primary">Adicionar</button>
+				</div>
+			</form>		
+						
+					
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Endereco</th>
+						<th colspan=2>Ação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cinema : ${cinemas}">
+						<td th:text="${cinema.nome}">Macedo</td>
+						<td th:text="${cinema.endereco}">Avenida 28 de marco</td>
+
+						<td><a th:href="@{/cinemas/alterar/}+${cinema.id}" class="glyphicon glyphicon-pencil"></a></td>
+						<td><a th:href="@{/cinemas/excluir/}+${cinema.id}" class="glyphicon glyphicon-trash"></a></td>
+
+					</tr>					
+				</tbody>
+			</table>
+		</div>		
+	</div>
+</body>
+</section>
+</html>
